@@ -478,37 +478,22 @@ vercel env add ANTHROPIC_API_KEY
 
 ### Workspace Scan Results (2026-03-06)
 
-Broad filesystem scan performed across multiple common locations:
+Filesystem scan performed across common workspace locations for existing CV/resume materials:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                  DISCOVERED WORKSPACE MATERIALS                     │
+│                  CV/RESUME MATERIALS SCAN                           │
 ├──────────────────────────────────┬──────────────────────────────────┤
-│  Location                        │  Contents                       │
+│  Scan Location                   │  Result                         │
 ├──────────────────────────────────┼──────────────────────────────────┤
-│  /tmp/cv-builder-repo/           │  AI-Powered CV Builder starter  │
-│                                  │  (README.md + MIT LICENSE)      │
-├──────────────────────────────────┼──────────────────────────────────┤
-│  /tmp/apex-os-core-gateway-sync/ │  Vibe Coder Academy curriculum  │
-│  types/curriculum.ts             │  TypeScript type system for     │
-│                                  │  Module, Section, Tool types    │
-├──────────────────────────────────┼──────────────────────────────────┤
-│  /tmp/apex-os-core-gateway-sync/ │  Full curriculum content data:  │
-│  data/curriculumData.ts          │  modules, sections, tools,      │
-│                                  │  objectives, key takeaways      │
-├──────────────────────────────────┼──────────────────────────────────┤
-│  ~/apex-workspace/               │  Directory does not exist       │
-│  ~/Documents/                    │  Directory does not exist       │
-│  ~/repos/                        │  Directory does not exist       │
+│  ~/apex-workspace/               │  No CV/resume files found       │
+│  ~/Documents/                    │  No CV/resume files found       │
+│  ~/repos/                        │  No CV/resume files found       │
 └──────────────────────────────────┴──────────────────────────────────┘
 ```
 
-**Curriculum system found** — Vibe Coder Academy platform running on APEX OS.
-Tool categories: EDITOR, REASONING, MULTIMODAL, CLOUD, IDE, ORCHESTRATION,
-RESEARCH, DESIGN, DEBUGGING, AGENT, IMAGES, VIDEO.
-
-No personal EU brief or personal CV/resume documents found on this machine.
-The live session builds everything from scratch.
+No personal CV, resume, or EU brief documents were found in the workspace.
+Everything is built from scratch live during the webinar — no prior materials needed.
 
 ### Reference Links
 
