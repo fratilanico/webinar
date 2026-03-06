@@ -1,55 +1,61 @@
-# 🎬 APEX OS Live Webinar — CV Builder with AI
+# 🚀 APEX OS Live Webinar — AI-Powered CV Builder
 
-> **Building a production-grade AI-powered CV Builder in 90 minutes**
-> Powered by Next.js 14 · Supabase · Claude AI · shadcn/ui · TypeScript
+> **Build a production-ready, AI-enhanced CV Builder in 1.5 hours**
+> Live coding session powered by the APEX OS agent swarm
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│              APEX OS AGENT SWARM — LIVE WEBINAR                │
-│                   CV Builder with AI 🤖                        │
-│                                                                 │
-│  📅 Live Session  │  ⏱  90 minutes  │  🔓 Open Source         │
-└─────────────────────────────────────────────────────────────────┘
-```
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=nextdotjs)](https://nextjs.org)
+[![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?style=flat-square&logo=supabase)](https://supabase.com)
+[![Claude AI](https://img.shields.io/badge/Claude-AI-CC785C?style=flat-square)](https://anthropic.com)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript)](https://typescriptlang.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+**Live repo:** https://github.com/fratilanico/webinar
+**Code repo:** https://github.com/fratilanico/cv-builder
 
 ---
 
-## 🗺️ Architecture Overview
+## 🏗️ APEX OS Agent Swarm Architecture
 
 ```
-┌──────────────────────────────────────────────────────────────────┐
-│                    APEX OS AGENT SWARM                          │
-│                                                                  │
-│  ┌─────────────────────────────────────────────────────────┐    │
-│  │          GATEWAY / ORCHESTRATOR LAYER                   │    │
-│  │                                                         │    │
-│  │   ┌─────────────┐    ┌─────────────┐    ┌──────────┐   │    │
-│  │   │  API Gateway│    │Orchestrator │    │  Router  │   │    │
-│  │   │  (Next.js)  │───▶│   Agent     │───▶│  Logic   │   │    │
-│  │   └─────────────┘    └─────────────┘    └──────────┘   │    │
-│  └─────────────────────────────────────────────────────────┘    │
-│                            │                                     │
-│                            ▼                                     │
-│  ┌─────────────────────────────────────────────────────────┐    │
-│  │              WORKER AGENTS LAYER                        │    │
-│  │                                                         │    │
-│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐  │    │
-│  │  │  CV-     │ │  AI      │ │  Export  │ │  Auth    │  │    │
-│  │  │  Builder │ │Enhancer  │ │  Agent   │ │  Agent   │  │    │
-│  │  │  Agent   │ │  Agent   │ │ (PDF/MD) │ │(Supabase)│  │    │
-│  │  └──────────┘ └──────────┘ └──────────┘ └──────────┘  │    │
-│  └─────────────────────────────────────────────────────────┘    │
-│                            │                                     │
-│                            ▼                                     │
-│  ┌─────────────────────────────────────────────────────────┐    │
-│  │                   TOOLS LAYER                           │    │
-│  │                                                         │    │
-│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐  │    │
-│  │  │ Supabase │ │  Claude  │ │  Vercel  │ │  shadcn  │  │    │
-│  │  │    DB    │ │  API     │ │  Deploy  │ │    UI    │  │    │
-│  │  └──────────┘ └──────────┘ └──────────┘ └──────────┘  │    │
-│  └─────────────────────────────────────────────────────────┘    │
-└──────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────┐
+│                    APEX OS — AGENT SWARM                            │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │              GATEWAY / ORCHESTRATOR LAYER                   │   │
+│  │                                                             │   │
+│  │   ┌──────────────┐    ┌──────────────┐    ┌─────────────┐  │   │
+│  │   │  Task Router │    │  Dispatcher  │    │  Scheduler  │  │   │
+│  │   │  & Planner   │───▶│  & Priority  │───▶│  & Queue    │  │   │
+│  │   └──────────────┘    └──────────────┘    └─────────────┘  │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+│                              │                                      │
+│                              ▼                                      │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │                  WORKER AGENTS LAYER                        │   │
+│  │                                                             │   │
+│  │   ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │   │
+│  │   │ Worker-1 │  │ Worker-2 │  │ Worker-3 │  │ Worker-N │  │   │
+│  │   │  (Dev)   │  │  (Dev)   │  │  (Dev)   │  │  (Dev)   │  │   │
+│  │   └────┬─────┘  └────┬─────┘  └────┬─────┘  └────┬─────┘  │   │
+│  └────────┼─────────────┼─────────────┼──────────────┼────────┘   │
+│           │             │             │              │             │
+│           └─────────────┴──────┬──────┴──────────────┘             │
+│                                ▼                                    │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │                      TOOLS LAYER                            │   │
+│  │                                                             │   │
+│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐  │   │
+│  │  │   Bash   │ │   Git    │ │  File    │ │    GitHub    │  │   │
+│  │  │ Executor │ │  Tools   │ │   R/W    │ │     CLI      │  │   │
+│  │  └──────────┘ └──────────┘ └──────────┘ └──────────────┘  │   │
+│  │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐  │   │
+│  │  │  Search  │ │  Claude  │ │ Supabase │ │   Vercel     │  │   │
+│  │  │   Web    │ │   API    │ │   SDK    │ │    Deploy    │  │   │
+│  │  └──────────┘ └──────────┘ └──────────┘ └──────────────┘  │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -59,98 +65,115 @@
 Before joining the webinar, make sure you have:
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                      PREREQUISITES                              │
-├────────────────────┬────────────────────────────────────────────┤
-│  Tool              │  Requirement                               │
-├────────────────────┼────────────────────────────────────────────┤
-│  Node.js           │  v18+ (LTS recommended)                    │
-│  npm / pnpm        │  Latest stable                             │
-│  Git               │  Any recent version                        │
-│  Supabase Account  │  Free tier at supabase.com                 │
-│  Anthropic API Key │  Get one at console.anthropic.com          │
-│  Vercel Account    │  Free tier at vercel.com                   │
-│  VS Code           │  Recommended editor                        │
-└────────────────────┴────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────┐
+│                   PREREQUISITES                     │
+├──────────────────┬──────────────────────────────────┤
+│  Tool / Account  │  Notes                           │
+├──────────────────┼──────────────────────────────────┤
+│  Node.js 18+     │  https://nodejs.org              │
+│  npm / pnpm      │  pnpm recommended                │
+│  Git             │  Any recent version              │
+│  Supabase Acct   │  Free tier is sufficient         │
+│  Anthropic Key   │  console.anthropic.com           │
+│  Vercel Acct     │  Free tier for deploy            │
+│  VS Code         │  Or your preferred editor        │
+└──────────────────┴──────────────────────────────────┘
 ```
 
 ---
 
-## ⏱️ Webinar Schedule
+## ⏱️ Webinar Agenda
 
-### `[00:00 – 05:00]` 🚀 Welcome + Architecture Overview
+### [00:00–05:00] Welcome + Architecture Overview
 
-- Introductions and goals for the session
-- What we're building: a full-stack AI-powered CV Builder
-- Architecture walkthrough: Next.js 14 App Router + Supabase + Claude AI
-- APEX OS agent swarm design pattern explained
-- Live demo of the finished product
+**What we're building:** A full-stack, AI-powered CV Builder with real-time preview,
+dark/light mode, and intelligent per-section AI suggestions — deployed to production.
+
+**Tech stack at a glance:**
+
+```
+┌─────────────────────────────────────────────────────┐
+│                    TECH STACK                       │
+├───────────────────┬─────────────────────────────────┤
+│  Layer            │  Technology                     │
+├───────────────────┼─────────────────────────────────┤
+│  Frontend         │  Next.js 14 App Router          │
+│  UI Components    │  shadcn/ui + Tailwind CSS        │
+│  Database         │  Supabase (Postgres)             │
+│  Auth             │  Supabase Auth                   │
+│  AI               │  Claude API (Anthropic)          │
+│  Language         │  TypeScript 5                   │
+│  Deployment       │  Vercel                          │
+└───────────────────┴─────────────────────────────────┘
+```
+
+**Design philosophy:**
+- Supabase-style neon green (`#3ECF8E`) aesthetic
+- Clean, professional, minimal UI
+- Dark/light mode from day one
+- Mobile-first responsive layout
 
 ---
 
-### `[05:00 – 15:00]` 🛠️ Project Setup
+### [05:00–15:00] Project Setup
 
-**Stack:**
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                       TECH STACK                               │
-├─────────────────────┬───────────────────────────────────────────┤
-│  Layer              │  Technology                               │
-├─────────────────────┼───────────────────────────────────────────┤
-│  Framework          │  Next.js 14 (App Router)                  │
-│  Language           │  TypeScript                               │
-│  Database           │  Supabase (PostgreSQL)                    │
-│  Auth               │  Supabase Auth                            │
-│  UI Components      │  shadcn/ui + Radix UI                     │
-│  Styling            │  Tailwind CSS                             │
-│  AI                 │  Anthropic Claude API                     │
-│  Deployment         │  Vercel                                   │
-└─────────────────────┴───────────────────────────────────────────┘
-```
-
-**Step-by-step setup:**
+#### 1. Bootstrap the app
 
 ```bash
-# 1. Bootstrap Next.js 14 with TypeScript + Tailwind
 npx create-next-app@latest cv-builder \
   --typescript \
   --tailwind \
   --eslint \
   --app \
-  --src-dir
+  --src-dir \
+  --import-alias "@/*"
 
 cd cv-builder
-
-# 2. Install shadcn/ui
-npx shadcn-ui@latest init
-
-# 3. Add core components
-npx shadcn-ui@latest add button input label card tabs badge
-
-# 4. Install Supabase client
-npm install @supabase/supabase-js @supabase/ssr
-
-# 5. Install Anthropic SDK
-npm install @anthropic-ai/sdk
-
-# 6. Install additional utilities
-npm install react-hook-form zod @hookform/resolvers
 ```
 
-**Environment setup:**
+#### 2. Install dependencies
 
 ```bash
-# .env.local  — NEVER commit this file to git
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+# shadcn/ui
+npx shadcn-ui@latest init
+
+# Core UI components
+npx shadcn-ui@latest add button input label textarea card badge separator tabs
+
+# Supabase
+npm install @supabase/supabase-js @supabase/ssr
+
+# AI
+npm install @anthropic-ai/sdk
+
+# Utilities
+npm install zod react-hook-form @hookform/resolvers clsx tailwind-merge
+```
+
+#### 3. Supabase project setup
+
+```bash
+# Install Supabase CLI
+npm install -g supabase
+
+# Init local dev
+supabase init
+supabase start
+```
+
+#### 4. Environment variables
+
+```bash
+# .env.local  — NEVER commit this file
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ANTHROPIC_API_KEY=your_anthropic_api_key
 ```
 
-**Supabase schema:**
+#### 5. Database schema
 
 ```sql
--- Run in Supabase SQL editor
+-- Run in Supabase SQL Editor
 create table cv_profiles (
   id uuid default gen_random_uuid() primary key,
   user_id uuid references auth.users not null,
@@ -165,356 +188,369 @@ create table cv_profiles (
 
 alter table cv_profiles enable row level security;
 
-create policy "Users can manage own CVs"
+create policy "Users own their CVs"
   on cv_profiles for all
   using (auth.uid() = user_id);
 ```
 
 ---
 
-### `[15:00 – 30:00]` 🎨 Core CV Builder UI
+### [15:00–30:00] Core CV Builder UI
 
-**Design System — Supabase-style Neon Green Aesthetic:**
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      DESIGN TOKENS                             │
-├──────────────────┬──────────────────────────────────────────────┤
-│  Token           │  Value                                       │
-├──────────────────┼──────────────────────────────────────────────┤
-│  Primary         │  #3ECF8E  (Neon green)                       │
-│  Background      │  #1C1C1C  (Dark)                             │
-│  Surface         │  #2A2A2A  (Card background)                  │
-│  Border          │  #3A3A3A  (Subtle border)                    │
-│  Text Primary    │  #FFFFFF                                      │
-│  Text Muted      │  #A1A1AA                                      │
-│  Accent          │  #3ECF8E  (Same as primary)                  │
-└──────────────────┴──────────────────────────────────────────────┘
-```
-
-**CV Builder Layout:**
+#### Component architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│  Header: CV Builder  ●  [Save]  [Export PDF]  [AI Enhance]     │
-├────────────────────────┬────────────────────────────────────────┤
-│  FORM PANEL (left)     │  LIVE PREVIEW (right)                  │
-│                        │                                        │
-│  [Personal Info]       │  ┌──────────────────────────────────┐  │
-│  [Experience]          │  │  John Doe                        │  │
-│  [Education]           │  │  Senior Software Engineer        │  │
-│  [Skills]              │  │  john@email.com · github.com/... │  │
-│                        │  ├──────────────────────────────────┤  │
-│  ──────────────────    │  │  EXPERIENCE                      │  │
-│                        │  │  ● Senior Engineer @ Acme Corp   │  │
-│  Dark/Light Toggle ☀️  │  │  ● Engineer @ StartupXYZ        │  │
-│                        │  ├──────────────────────────────────┤  │
-│                        │  │  EDUCATION & SKILLS              │  │
-│                        │  └──────────────────────────────────┘  │
-└────────────────────────┴────────────────────────────────────────┘
+src/
+├── app/
+│   ├── layout.tsx              # Root layout + theme provider
+│   ├── page.tsx                # Landing page
+│   └── cv/
+│       ├── page.tsx            # CV editor page
+│       └── [id]/
+│           └── page.tsx        # Shared CV view
+├── components/
+│   ├── cv/
+│   │   ├── CVEditor.tsx        # Main editor container
+│   │   ├── CVPreview.tsx       # Real-time preview pane
+│   │   ├── sections/
+│   │   │   ├── PersonalInfo.tsx
+│   │   │   ├── Experience.tsx
+│   │   │   ├── Education.tsx
+│   │   │   └── Skills.tsx
+│   │   └── AIAssistButton.tsx  # Per-section AI enhancement
+│   ├── ui/                     # shadcn components
+│   └── ThemeToggle.tsx
+├── lib/
+│   ├── supabase/
+│   │   ├── client.ts
+│   │   └── server.ts
+│   ├── ai/
+│   │   └── claude.ts
+│   └── types.ts
+└── styles/
+    └── globals.css
 ```
 
-**Form sections to build:**
+#### Design tokens — Neon green aesthetic
 
-1. **Personal Info** — name, title, email, phone, LinkedIn, GitHub, summary
-2. **Experience** — company, role, dates, description, achievements (dynamic list)
-3. **Education** — institution, degree, dates, GPA (optional)
-4. **Skills** — categorized tags (languages, frameworks, tools)
+```css
+/* globals.css */
+:root {
+  --accent: #3ECF8E;          /* Supabase neon green */
+  --accent-hover: #2EB87B;
+  --background: #FFFFFF;
+  --surface: #F8F9FA;
+  --border: #E5E7EB;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+}
 
-**Key component: `CVForm.tsx`:**
-
-```tsx
-// src/components/CVForm.tsx
-'use client'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import PersonalInfoSection from './sections/PersonalInfoSection'
-import ExperienceSection from './sections/ExperienceSection'
-import EducationSection from './sections/EducationSection'
-import SkillsSection from './sections/SkillsSection'
-
-export default function CVForm({ data, onChange }) {
-  return (
-    <Tabs defaultValue="personal">
-      <TabsList className="grid grid-cols-4 w-full">
-        <TabsTrigger value="personal">Personal</TabsTrigger>
-        <TabsTrigger value="experience">Experience</TabsTrigger>
-        <TabsTrigger value="education">Education</TabsTrigger>
-        <TabsTrigger value="skills">Skills</TabsTrigger>
-      </TabsList>
-      <TabsContent value="personal">
-        <PersonalInfoSection data={data.personalInfo} onChange={onChange} />
-      </TabsContent>
-      {/* ... other tab contents */}
-    </Tabs>
-  )
+.dark {
+  --background: #0A0A0A;
+  --surface: #111111;
+  --border: #1F1F1F;
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
 }
 ```
 
----
-
-### `[30:00 – 50:00]` 🤖 AI Integration with Claude
-
-**How AI enhancement works:**
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                   AI ENHANCEMENT FLOW                          │
-│                                                                 │
-│  User clicks "✨ Enhance"                                       │
-│         │                                                       │
-│         ▼                                                       │
-│  Next.js API Route (/api/enhance)                              │
-│         │                                                       │
-│         ▼                                                       │
-│  Claude API (claude-sonnet-4-6)                                │
-│    ● System: "You are a professional CV writer..."              │
-│    ● User: section content + context                           │
-│         │                                                       │
-│         ▼                                                       │
-│  Stream response back to UI                                    │
-│         │                                                       │
-│         ▼                                                       │
-│  User reviews + accepts / rejects                              │
-└─────────────────────────────────────────────────────────────────┘
-```
-
-**API route implementation:**
-
-```typescript
-// src/app/api/enhance/route.ts
-import Anthropic from '@anthropic-ai/sdk'
-import { NextRequest } from 'next/server'
-
-const client = new Anthropic()
-
-export async function POST(req: NextRequest) {
-  const { section, content, jobTitle } = await req.json()
-
-  const systemPrompt = `You are an expert CV writer and career coach.
-Your task is to enhance CV content to be more impactful, professional, and ATS-friendly.
-Use strong action verbs, quantify achievements where possible, and maintain authenticity.
-Return only the enhanced content without explanation.`
-
-  const userPrompt = `Enhance this ${section} section for a ${jobTitle} role:
-
-${JSON.stringify(content, null, 2)}
-
-Requirements:
-- Use strong action verbs
-- Quantify achievements where possible
-- Keep it concise and impactful
-- Maintain a professional tone`
-
-  const stream = await client.messages.stream({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 1024,
-    system: systemPrompt,
-    messages: [{ role: 'user', content: userPrompt }],
-  })
-
-  return new Response(stream.toReadableStream())
-}
-```
-
-**AI features overview:**
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                      AI FEATURES                               │
-├──────────────────────┬──────────────────────────────────────────┤
-│  Feature             │  Description                             │
-├──────────────────────┼──────────────────────────────────────────┤
-│  Smart Suggestions   │  Per-section enhancement tips            │
-│  One-click Rewrite   │  Full section AI rewrite                 │
-│  ATS Optimization    │  Keyword analysis for job descriptions   │
-│  Tone Analysis       │  Professional tone scoring               │
-│  Achievement Boost   │  Convert duties to achievements          │
-└──────────────────────┴──────────────────────────────────────────┘
-```
-
-**Smart suggestions component:**
+#### Real-time split-pane layout
 
 ```tsx
-// src/components/AISuggestions.tsx
-'use client'
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import { Sparkles } from 'lucide-react'
-
-export default function AISuggestions({ section, content, onApply }) {
-  const [suggestion, setSuggestion] = useState('')
-  const [loading, setLoading] = useState(false)
-
-  async function enhance() {
-    setLoading(true)
-    const res = await fetch('/api/enhance', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ section, content }),
-    })
-    setSuggestion(await res.text())
-    setLoading(false)
-  }
-
+// app/cv/page.tsx
+export default function CVPage() {
   return (
-    <div className="mt-4 p-4 border border-[#3ECF8E]/30 rounded-lg bg-[#3ECF8E]/5">
-      <Button
-        onClick={enhance}
-        disabled={loading}
-        className="bg-[#3ECF8E] text-black hover:bg-[#3ECF8E]/90"
-      >
-        <Sparkles className="mr-2 h-4 w-4" />
-        {loading ? 'Enhancing...' : 'AI Enhance'}
-      </Button>
-      {suggestion && (
-        <div className="mt-3">
-          <p className="text-sm text-muted-foreground mb-2">AI Suggestion:</p>
-          <p className="text-sm">{suggestion}</p>
-          <Button size="sm" onClick={() => onApply(suggestion)} className="mt-2">
-            Apply
-          </Button>
-        </div>
-      )}
+    <div className="flex h-screen overflow-hidden">
+      {/* Editor — left pane */}
+      <div className="w-1/2 overflow-y-auto border-r border-border">
+        <CVEditor />
+      </div>
+
+      {/* Preview — right pane */}
+      <div className="w-1/2 overflow-y-auto bg-surface">
+        <CVPreview />
+      </div>
     </div>
   )
 }
 ```
 
+#### Form sections covered
+
+```
+┌─────────────────────────────────────────────────────┐
+│                   CV SECTIONS                       │
+├──────────────────┬──────────────────────────────────┤
+│  Section         │  Fields                         │
+├──────────────────┼──────────────────────────────────┤
+│  Personal Info   │  Name, title, email, phone,     │
+│                  │  location, LinkedIn, GitHub      │
+├──────────────────┼──────────────────────────────────┤
+│  Experience      │  Company, role, dates, bullet   │
+│                  │  points (dynamic list)           │
+├──────────────────┼──────────────────────────────────┤
+│  Education       │  Institution, degree, field,    │
+│                  │  dates, achievements             │
+├──────────────────┼──────────────────────────────────┤
+│  Skills          │  Categories + skill tags,       │
+│                  │  proficiency levels              │
+└──────────────────┴──────────────────────────────────┘
+```
+
 ---
 
-### `[50:00 – 60:00]` 🧪 Testing, Bug Fixing & Deploy
+### [30:00–50:00] AI Integration — Claude API
 
-**QA checklist:**
+#### Server action for AI enhancement
+
+```typescript
+// lib/ai/claude.ts
+import Anthropic from '@anthropic-ai/sdk'
+
+const client = new Anthropic()
+
+export async function enhanceSection(
+  section: string,
+  content: string
+): Promise<string> {
+  const message = await client.messages.create({
+    model: 'claude-opus-4-6',
+    max_tokens: 1024,
+    messages: [
+      {
+        role: 'user',
+        content: `You are a professional CV writer.
+Enhance the following ${section} section of a CV.
+Make it more impactful, use strong action verbs,
+quantify achievements where possible.
+Return only the enhanced text, no explanations.
+
+Original:
+${content}`
+      }
+    ]
+  })
+
+  return (message.content[0] as { type: 'text'; text: string }).text
+}
+```
+
+#### API route
+
+```typescript
+// app/api/ai/enhance/route.ts
+import { enhanceSection } from '@/lib/ai/claude'
+import { NextRequest, NextResponse } from 'next/server'
+
+export async function POST(request: NextRequest) {
+  const { section, content } = await request.json()
+
+  if (!section || !content) {
+    return NextResponse.json({ error: 'Missing fields' }, { status: 400 })
+  }
+
+  const enhanced = await enhanceSection(section, content)
+  return NextResponse.json({ enhanced })
+}
+```
+
+#### AI features we'll build
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    QA CHECKLIST                                │
-├─────────────────────────────────────────────────────────────────┤
-│  ✓  Form validation works for all sections                     │
-│  ✓  Real-time preview updates as user types                    │
-│  ✓  Dark / light mode toggle persists on refresh               │
-│  ✓  AI enhancement handles API errors gracefully               │
-│  ✓  CV saves to Supabase and loads correctly                   │
-│  ✓  Authentication flow (login, signup, logout)                │
-│  ✓  Export produces readable PDF / Markdown                    │
-│  ✓  Mobile responsive layout works on phone                    │
-│  ✓  All RLS policies secure user data properly                 │
-└─────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────────┐
+│                      AI FEATURES                              │
+├──────────────────────┬────────────────────────────────────────┤
+│  Feature             │  Description                          │
+├──────────────────────┼────────────────────────────────────────┤
+│  Section Enhance     │  One-click rewrite per section        │
+│  Bullet Improve      │  Make each bullet point stronger      │
+│  Skills Suggest      │  Auto-suggest skills from experience  │
+│  Summary Generate    │  Write a compelling professional      │
+│                      │  summary from the full CV content     │
+│  ATS Optimization    │  Suggest keywords for job matching    │
+└──────────────────────┴────────────────────────────────────────┘
 ```
 
-**Vercel deployment:**
+#### AI Assist Button component
+
+```tsx
+// components/cv/AIAssistButton.tsx
+'use client'
+
+import { useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Sparkles, Loader2 } from 'lucide-react'
+
+interface Props {
+  section: string
+  content: string
+  onEnhanced: (text: string) => void
+}
+
+export function AIAssistButton({ section, content, onEnhanced }: Props) {
+  const [loading, setLoading] = useState(false)
+
+  const handleEnhance = async () => {
+    setLoading(true)
+    try {
+      const res = await fetch('/api/ai/enhance', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ section, content })
+      })
+      const { enhanced } = await res.json()
+      onEnhanced(enhanced)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <Button
+      variant="outline"
+      size="sm"
+      onClick={handleEnhance}
+      disabled={loading}
+      className="border-[#3ECF8E] text-[#3ECF8E] hover:bg-[#3ECF8E]/10"
+    >
+      {loading
+        ? <Loader2 className="h-4 w-4 animate-spin mr-2" />
+        : <Sparkles className="h-4 w-4 mr-2" />
+      }
+      {loading ? 'Enhancing...' : 'AI Enhance'}
+    </Button>
+  )
+}
+```
+
+---
+
+### [50:00–60:00] Testing, Bug Fixing & Deploy
+
+#### Pre-deploy checklist
+
+```
+┌─────────────────────────────────────────────────────┐
+│               PRE-DEPLOY CHECKLIST                  │
+├─────────────────────────────────────────────────────┤
+│  ☐  All env vars set in Vercel dashboard            │
+│  ☐  Supabase RLS policies verified                 │
+│  ☐  API routes return proper error codes           │
+│  ☐  Dark mode toggle works                         │
+│  ☐  Mobile responsive layout checked               │
+│  ☐  CV preview renders correctly                   │
+│  ☐  AI enhancement endpoint tested                 │
+│  ☐  .env.local NOT committed to git                │
+└─────────────────────────────────────────────────────┘
+```
+
+#### Deploy to Vercel
 
 ```bash
-# Deploy to Vercel
+# Install Vercel CLI
 npm install -g vercel
-vercel
 
-# Set these environment variables in your Vercel dashboard:
-#   NEXT_PUBLIC_SUPABASE_URL
-#   NEXT_PUBLIC_SUPABASE_ANON_KEY
-#   ANTHROPIC_API_KEY
+# Deploy
+vercel --prod
+
+# Set environment variables
+vercel env add NEXT_PUBLIC_SUPABASE_URL
+vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY
+vercel env add ANTHROPIC_API_KEY
 ```
 
 ---
 
-### `[60:00 – 90:00]` 🎤 Q&A + Architecture Deep-Dive
+### [60:00–90:00] Q&A, Architecture Deep-Dive & Audience Questions
 
-**Topics to cover:**
+**Topics we'll cover:**
+
+- How the APEX OS agent swarm orchestrates autonomous dev workers
+- Scaling multi-agent systems: task queuing, priority, parallelism
+- Claude API best practices: system prompts, streaming, tool use
+- Supabase Row Level Security patterns for multi-tenant apps
+- Next.js 14 App Router patterns: server components, server actions, streaming
+- Production considerations: rate limiting, caching, cost optimization
+
+---
+
+## 📁 Resources
+
+### Workspace Scan Results (2026-03-06)
+
+Broad filesystem scan performed across multiple common locations:
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                  DISCOVERED WORKSPACE MATERIALS                     │
+├──────────────────────────────────┬──────────────────────────────────┤
+│  Location                        │  Contents                       │
+├──────────────────────────────────┼──────────────────────────────────┤
+│  /tmp/cv-builder-repo/           │  AI-Powered CV Builder starter  │
+│                                  │  (README.md + MIT LICENSE)      │
+├──────────────────────────────────┼──────────────────────────────────┤
+│  /tmp/apex-os-core-gateway-sync/ │  Vibe Coder Academy curriculum  │
+│  types/curriculum.ts             │  TypeScript type system for     │
+│                                  │  Module, Section, Tool types    │
+├──────────────────────────────────┼──────────────────────────────────┤
+│  /tmp/apex-os-core-gateway-sync/ │  Full curriculum content data:  │
+│  data/curriculumData.ts          │  modules, sections, tools,      │
+│                                  │  objectives, key takeaways      │
+├──────────────────────────────────┼──────────────────────────────────┤
+│  ~/apex-workspace/               │  Directory does not exist       │
+│  ~/Documents/                    │  Directory does not exist       │
+│  ~/repos/                        │  Directory does not exist       │
+└──────────────────────────────────┴──────────────────────────────────┘
+```
+
+**Curriculum system found** — Vibe Coder Academy platform running on APEX OS.
+Tool categories: EDITOR, REASONING, MULTIMODAL, CLOUD, IDE, ORCHESTRATION,
+RESEARCH, DESIGN, DEBUGGING, AGENT, IMAGES, VIDEO.
+
+No personal EU brief or personal CV/resume documents found on this machine.
+The live session builds everything from scratch.
+
+### Reference Links
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    Q&A TOPICS                                  │
-├──────────────────────┬──────────────────────────────────────────┤
-│  Topic               │  Details                                 │
-├──────────────────────┼──────────────────────────────────────────┤
-│  Scaling with APEX   │  How the swarm handles concurrent users  │
-│  AI Prompt Eng.      │  Crafting effective CV prompts           │
-│  Supabase RLS        │  Row-level security deep dive            │
-│  Next.js App Router  │  Server vs client components strategy    │
-│  PDF Export          │  Puppeteer vs react-pdf vs html-to-pdf   │
-│  Custom Themes       │  Building your own design system         │
-│  Production Tips     │  Rate limiting, caching, monitoring      │
-│  Open Source         │  How to contribute to cv-builder         │
-└──────────────────────┴──────────────────────────────────────────┘
+│                      REFERENCE LINKS                            │
+├────────────────────────────────────┬────────────────────────────┤
+│  Resource                          │  URL                       │
+├────────────────────────────────────┼────────────────────────────┤
+│  CV Builder repo (live code)       │  github.com/fratilanico/   │
+│                                    │  cv-builder                │
+│  Vibe Coder Academy                │  APEX OS curriculum system │
+│  Next.js 14 docs                   │  nextjs.org/docs           │
+│  Supabase docs                     │  supabase.com/docs         │
+│  shadcn/ui                         │  ui.shadcn.com             │
+│  Anthropic docs                    │  docs.anthropic.com        │
+│  Claude API reference              │  docs.anthropic.com/en/api │
+│  Vercel deployment                 │  vercel.com/docs           │
+└────────────────────────────────────┴────────────────────────────┘
 ```
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Quick Start (Post-Webinar)
 
+```bash
+git clone https://github.com/fratilanico/cv-builder.git
+cd cv-builder
+cp .env.example .env.local
+# Fill in your Supabase + Anthropic keys
+npm install
+npm run dev
 ```
-cv-builder/
-├── src/
-│   ├── app/
-│   │   ├── (auth)/
-│   │   │   ├── login/page.tsx
-│   │   │   └── signup/page.tsx
-│   │   ├── (dashboard)/
-│   │   │   └── builder/page.tsx
-│   │   ├── api/
-│   │   │   ├── enhance/route.ts       ← Claude AI endpoint
-│   │   │   └── export/route.ts        ← PDF / MD export
-│   │   └── layout.tsx
-│   ├── components/
-│   │   ├── ui/                        ← shadcn/ui components
-│   │   ├── CVForm.tsx
-│   │   ├── CVPreview.tsx
-│   │   ├── AISuggestions.tsx
-│   │   └── sections/
-│   │       ├── PersonalInfoSection.tsx
-│   │       ├── ExperienceSection.tsx
-│   │       ├── EducationSection.tsx
-│   │       └── SkillsSection.tsx
-│   ├── lib/
-│   │   ├── supabase/
-│   │   │   ├── client.ts
-│   │   │   └── server.ts
-│   │   └── types.ts
-│   └── styles/
-│       └── globals.css
-├── .env.local                         ← NEVER commit
-├── .gitignore
-├── package.json
-└── README.md
-```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🔗 Resources
+## 📄 License
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                     USEFUL LINKS                               │
-├──────────────────────┬──────────────────────────────────────────┤
-│  Resource            │  URL                                     │
-├──────────────────────┼──────────────────────────────────────────┤
-│  CV Builder Repo     │  github.com/fratilanico/cv-builder       │
-│  Next.js Docs        │  nextjs.org/docs                         │
-│  Supabase Docs       │  supabase.com/docs                       │
-│  Claude API Docs     │  docs.anthropic.com                      │
-│  shadcn/ui           │  ui.shadcn.com                           │
-│  Vercel Deploy       │  vercel.com/docs                         │
-│  Tailwind CSS        │  tailwindcss.com                         │
-└──────────────────────┴──────────────────────────────────────────┘
-```
-
-> No existing CV/resume materials were found in the workspace at scan time.
-> Add your materials to a `resources/` directory in this repo and reference them here.
+MIT © [Nico Fratila](https://github.com/fratilanico)
 
 ---
 
-## 🤖 Built with APEX OS
-
-This webinar is part of the **APEX OS** open-source agent swarm platform — an autonomous multi-agent development system.
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  APEX OS  ·  Autonomous Development Platform                   │
-│  Every feature demo'd in this webinar was built by AI agents   │
-│  working in parallel — just like you'll build in production.   │
-└─────────────────────────────────────────────────────────────────┘
-```
-
----
-
-*Made with ❤️ by Nico Fratila · APEX OS Webinar Series*
+*Built live with the APEX OS agent swarm*
