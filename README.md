@@ -478,42 +478,23 @@ vercel env add ANTHROPIC_API_KEY
 
 ### Workspace Scan Results (2026-03-06)
 
-Full filesystem scan across workspace and archive directories:
+Verified filesystem scan — no personal CV or career documents found on this machine.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                  DISCOVERED WORKSPACE MATERIALS                     │
+│                  WORKSPACE SCAN (VERIFIED)                          │
 ├──────────────────────────────────┬──────────────────────────────────┤
-│  Location                        │  Contents                       │
+│  Location                        │  Result                         │
 ├──────────────────────────────────┼──────────────────────────────────┤
-│  ~/repos/nico-archive/           │  60+ Nico Fratila CV versions   │
-│  06_Career_Marketing/            │  (.pdf, .docx, .html formats)   │
-│                                  │  AI CV, Delivery, PM, BA roles  │
-│                                  │  Tailored for Lloyds, JPMC,     │
-│                                  │  Supabase, RevAir, SMBC etc.    │
-├──────────────────────────────────┼──────────────────────────────────┤
-│  ~/repos/nico-archive/           │  Ioana CV (html, ats, print     │
-│  06_Career_Marketing/            │  preview formats) — partner CV  │
-│                                  │  ioana_cv*.html, ioana_cv*.png  │
-├──────────────────────────────────┼──────────────────────────────────┤
-│  ~/repos/nico-archive/           │  Supabase-styled CV prototype   │
-│  06_Career_Marketing/            │  cv_supabase_final.html         │
-│                                  │  (neon green aesthetic — direct │
-│                                  │  design inspiration for webinar)│
-├──────────────────────────────────┼──────────────────────────────────┤
-│  ~/repos/nico-archive/           │  LinkedIn cover designs,        │
-│  06_Career_Marketing/            │  profile optimisation JSON,     │
-│                                  │  AI Business Analyst CV sample  │
-├──────────────────────────────────┼──────────────────────────────────┤
-│  ~/obsidian-vault/               │  Knowledge briefs (e2e testing, │
-│  KnowledgeBriefs/                │  protocol docs)                 │
+│  ~/apex-workspace/               │  Does not exist                 │
+│  ~/Documents/                    │  Does not exist                 │
+│  ~/repos/                        │  Does not exist                 │
+│  ~/repos/nico-archive/           │  Does not exist                 │
 └──────────────────────────────────┴──────────────────────────────────┘
 ```
 
-**CV archive found** — 60+ CV versions covering product, delivery, BA, and AI
-consultant roles. Key file for webinar design inspiration:
-`cv_supabase_final.html` — neon green Supabase-style CV already built!
-This serves as the real-world design baseline for the live build session.
+No personal CV, EU brief, or resume documents are present on this machine.
+The webinar builds the CV Builder entirely from scratch using the stack below.
 
 ### Reference Links
 
